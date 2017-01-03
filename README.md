@@ -27,6 +27,6 @@ Clone this repo, rename the sanic_scaffolding directory to the name of your proj
 At this point, you can start the server by running `./run.py` and browsing to [http://localhost:8000/](http://localhost:8000) or [http://localhost:8000/main/](http://localhost:8000/main/).
 
 ## Enable SSL
-If the USE_SSL environmental variable is set, or the USE_SSL variable is set to True in the '__init__.py file config section', the SSL certificate will be used to setup an SSL wrapped connection socket that is passed into sanic.
+If the USE_SSL environmental variable is set, or the USE_SSL variable is set to True in the '__init__.py file config section', a provide SSL certificate/key pair, which will be used to setup an SSL wrapped connection socket that is passed into sanic.
 
-Note: currently only one worker will work when enabling SSL in the server.
+For instance to create SSL certificates: `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt`.
