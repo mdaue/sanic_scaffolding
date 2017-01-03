@@ -25,3 +25,8 @@ As long as the <project dir>/__init__.py module remains intact, the structure of
 Clone this repo, rename the sanic_scaffolding directory to the name of your project. Create your Python 3 virtual environment (`mkvirtualenv -p python3.5 sanic_project`) and install dependendencies: `pip3 install -r requirements.txt`
 
 At this point, you can start the server by running `./run.py` and browsing to [http://localhost:8000/](http://localhost:8000) or [http://localhost:8000/main/](http://localhost:8000/main/).
+
+## Enable SSL
+If the USE_SSL environmental variable is set, or the USE_SSL variable is set to True in the '__init__.py file config section', the SSL certificate will be used to setup an SSL wrapped connection socket that is passed into sanic.
+
+Note: currently only one worker will work when enabling SSL in the server.
