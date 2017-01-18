@@ -39,6 +39,7 @@ APP_ARGS = {
 SSL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), 'ssl'))
 SSL_CERT = os.path.join(SSL_PATH, 'server.crt')
 SSL_KEY = os.path.join(SSL_PATH, 'server.key')
+CIPHERS = 'ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:RSA+AESGCM:RSA+AES:!aNULL:!MD5:!DSS'
 USE_SSL = False
 
 def create_ssl_context():
@@ -54,6 +55,7 @@ def create_ssl_context():
     try:
         # Pass Certificate, Key and Password
         context.load_cert_chain(SSL_CERT, keyfile=SSL_KEY)  # password=None
+        context.set_ciphers(CIPHERS)
     except ssl.SSLError as exc:
         print("Error importing cert chain {}/{}; exc={}".format(SSL_CERT, SSL_KEY, exc))
         return None
