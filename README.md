@@ -30,3 +30,8 @@ At this point, you can start the server by running `./run.py` and browsing to [h
 If the USE_SSL environmental variable is set, or the USE_SSL variable is set to True in the '__init__.py file config section', a provide SSL certificate/key pair, which will be used to setup an SSL wrapped connection socket that is passed into sanic.
 
 For instance to create SSL certificates: `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt`.
+
+**DO NOT use the default certs for any sort of production environment; or anything not in development**
+
+By default, the SSL feature uses recommended ciphers sourced from this website: (https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/)[https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/].
+
